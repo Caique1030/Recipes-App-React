@@ -1,10 +1,10 @@
-.divDetalhesBebidas {
+.divDetalhes {
   background-color: whitesmoke;
   font-family: Lobster , sans-serif;
   font-size: 20px;
 }
 
-.divDetalhesBebidas .imgDetalhes {
+.divDetalhes .imgDetalhes {
   border-radius: 10%;
   height: 250px;
 
@@ -24,9 +24,9 @@
   justify-content: center;
 }
 
-.divDetalhesBebidas .pInstruction {
+.divDetalhes .pInstruction {
   background-color: rgb(165, 163, 163);
-  border-radius: 5%;
+  border-radius: 2%;
   margin-left: 5px;
 }
 
@@ -50,5 +50,11 @@
   display: flex;
   justify-content: center;
   margin-right: 10px;
+}
+
+.video {
+  display: flex;
+  margin-bottom: 10px;
+  width: 300px;
 }
 

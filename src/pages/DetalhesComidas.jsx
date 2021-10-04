@@ -9,6 +9,7 @@ import getSixCards, { ChoiceButton,
 import '../css/CardsRecomendations.css';
 import ShareAndFavButton from '../components/ShareAndFavButton';
 import { modifyMealRecipeInfo } from '../GlobalFuncs/modifyRecipeInfo';
+import '../css/Detalhes.css';
 
 function DetalhesComidas({ match: { params: { id } } }) {
   const [objIdReceita, setObjIdReceita] = useState();
@@ -51,39 +52,47 @@ function DetalhesComidas({ match: { params: { id } } }) {
   }
 
   return (
-    <div>
-      <p>Detalhes comidas</p>
+    <div className="divDetalhes">
       <img
         src={ objIdReceita.strMealThumb }
         data-testid="recipe-photo"
         alt="recipeFoto"
+        className="imgDetalhes"
       />
-      <h3 data-testid="recipe-title">{objIdReceita.strMeal}</h3>
-      <ShareAndFavButton recipeInfos={ modifyMealRecipeInfo(objIdReceita) } />
-      <p data-testid="recipe-category">{objIdReceita.strCategory}</p>
-      <p>Ingredientes:</p>
-      {getIngredientAndMeasure().map((ingredient, index) => (
-        <ul key={ index }>
-          <li data-testid={ `${index}-ingredient-name-and-measure` }>{ingredient}</li>
-        </ul>
-      ))}
-      <p>Instruções</p>
-      <p data-testid="instructions">{objIdReceita.strInstructions}</p>
-      <div>
-        <iframe
-          title="dsa"
-          frameBorder="0"
-          data-testid="video"
-          width="200px"
-          src={ getEmbedVideo(objIdReceita) }
-        />
+      <h3 className="recipeTitle" data-testid="recipe-title">{objIdReceita.strMeal}</h3>
+      <div className="btnFav">
+        <ShareAndFavButton recipeInfos={ modifyMealRecipeInfo(objIdReceita) } />
       </div>
+      <p className="alc" data-testid="recipe-category">{objIdReceita.strCategory}</p>
+      <p>Ingredients:</p>
+      <section className="ingredients">
+        {getIngredientAndMeasure().map((ingredient, index) => (
+          <ul key={ index }>
+            <li data-testid={ `${index}-ingredient-name-and-measure` }>{ingredient}</li>
+          </ul>
+        ))}
+      </section>
+      <p>Instructions:</p>
+      <p
+        className="pInstruction"
+        data-testid="instructions"
+      >
+        {objIdReceita.strInstructions}
+      </p>
+      <iframe
+        title="dsa"
+        frameBorder="0"
+        data-testid="video"
+        width="300px"
+        src={ getEmbedVideo(objIdReceita) }
+        className="video"
+      />
       <div className="cardsRecomendations">
         {getSixCards(objRecomendations) !== undefined && getSixCards(objRecomendations)
           .map((element, index) => (
             <div data-testid={ `${index}-recomendation-card` } key={ index }>
               <img
-                style={ { width: '300px' } }
+                style={ { width: '180px' } }
                 src={ element.strDrinkThumb }
                 alt="imag"
               />

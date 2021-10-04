@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
 import { clickShare } from '../services/functionsForDetails';
+import '../css/ReceitasFavoritas.css';
 
 export default function ReceitasFavoritas() {
   const [copyOk, setCopyOk] = useState(false);
@@ -43,6 +44,7 @@ export default function ReceitasFavoritas() {
         type="button"
         data-testid="filter-by-all-btn"
         onClick={ () => onClickFilter('All') }
+        className="btnFilters"
       >
         All
       </button>
@@ -50,6 +52,7 @@ export default function ReceitasFavoritas() {
         type="button"
         data-testid="filter-by-food-btn"
         onClick={ () => onClickFilter('Food') }
+        className="btnFilters"
       >
         Food
       </button>
@@ -57,6 +60,7 @@ export default function ReceitasFavoritas() {
         type="button"
         data-testid="filter-by-drink-btn"
         onClick={ () => onClickFilter('Drinks') }
+        className="btnFilters"
       >
         Drinks
       </button>
@@ -76,10 +80,10 @@ export default function ReceitasFavoritas() {
   return (
     <main className="main-content">
       <Header pageTitle="Receitas Favoritas" searchButton={ false } />
-      <div>
+      <div className="divFav">
         {buttonsFilters()}
         {favoritesFromStorage !== null && favoritesFromStorage.map((recipes, index) => (
-          <div key={ index }>
+          <div className="divMap" key={ index }>
             <button
               alt="imageRecipe"
               type="button"
@@ -89,12 +93,13 @@ export default function ReceitasFavoritas() {
             >
               <img
                 src={ recipes.image }
+                className="imgFav"
                 alt="imagemComida"
-                style={ { width: '200px' } }
               />
             </button>
             <p
               data-testid={ `${index}-horizontal-top-text` }
+              className="horiTop"
             >
               {recipes.type === 'bebida' ? recipes.alcoholicOrNot
                 : `${recipes.area} - ${recipes.category}`}
@@ -103,6 +108,7 @@ export default function ReceitasFavoritas() {
               type="button"
               data-testid={ `${index}-horizontal-name` }
               onClick={ () => sendToDetails(recipes.type, recipes.id) }
+              className="horizontalName"
             >
               {recipes.name}
             </button>

@@ -61,7 +61,7 @@ function DetalhesBebidas({ match: { params: { id } } }) {
   }
 
   return (
-    <div className="divDetalhesBebidas">
+    <div className="divDetalhes">
       <img
         width="300px"
         data-testid="recipe-photo"
