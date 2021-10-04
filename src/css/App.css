@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+:root {
+  --main-laranja-color: #f58634;
+
+  --main-laranja-claro-color: #fbbd89;
+
+  --main-dourado-color: #997c30;
+
+  --main-bg-color: rgb(238, 223, 204);
+
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,10 +18,10 @@
 }
 
 .main-content {
+  background-color: var(--main-bg-color);
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  margin-top: 52px;
+  margin: 52px 0 50px;
 }
 
 .app-footer {
@@ -20,26 +33,39 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 10px 0 0;
 }
 
-.card-body {
+.card-body-recipies {
   background: white;
-  border-radius: 6px;
+  border-radius: 50px 50px 6px 6px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
-  height: 172px;
-  margin: 5px;
+  align-items: center;
+  height: 95px;
+  margin: 80px 5px 10px;
   width: 161px;
 }
 
-.card-body img {
+.card-body-recipies img {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  border: 3px solid white;
+  border-radius: 60px;
+  height: 120px;
+  width: 120px;
+  margin: -70px 0 0;
+}
+/* .card-body-recipies img {
   border-radius: 6px 6px 0 0;
   height: 109px;
   width: 161px;
-}
+} */
 
-.card-body h4 {
+.card-body-recipies h4 {
+  color: var(--main-dourado-color);
+  font-family: 'Lobster', cursive;
+  letter-spacing: 1px;
   margin: 5px;
 }
 

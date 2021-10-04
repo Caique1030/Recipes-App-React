@@ -1,5 +1,6 @@
 .app-footer {
-  background-color: grey;
+  background-color: rgb(139, 90, 43);
+  box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-between;
   padding: 5px;
@@ -7,6 +8,6 @@
 }
 
 .app-footer button {
-  background-color: grey;
+  background-color: inherit;
   border: none;
 }

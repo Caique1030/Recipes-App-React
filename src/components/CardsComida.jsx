@@ -12,7 +12,7 @@ function CardsComida({ comidas }) {
         >
           <div
             data-testid={ `${index}-recipe-card` }
-            className="card-body"
+            className="card-body-recipies"
           >
             <img
               data-testid={ `${index}-card-img` }

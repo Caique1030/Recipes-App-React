@@ -6,6 +6,10 @@ import actionLogin from '../redux/actions';
 import Button from '../components/Button';
 import Input from '../components/Input';
 
+import '../css/Login.css';
+
+import logoDevlicias from '../images/logo-ver.png';
+
 function Login({ actLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -33,26 +37,29 @@ function Login({ actLogin }) {
   }, [email, password]);
 
   return (
-    <div>
+    <div className="login-body">
       {isLogged && <Redirect to="/comidas" />}
-      <h3>Login</h3>
-      <Input
-        setValue={ setEmail }
-        text="Email"
-        testId="email-input"
-      />
-      <Input
-        setValue={ setPassword }
-        text="Password"
-        type="password"
-        testId="password-input"
-      />
-      <Button
-        onClick={ () => handleClick() }
-        text="Entrar"
-        disabled={ isValid }
-        dataTest="login-submit-btn"
-      />
+      <img src={ logoDevlicias } alt="Logo Devlicias" />
+      <h1>Login</h1>
+      <div className="form-main">
+        <Input
+          setValue={ setEmail }
+          placeHolder="Email"
+          testId="email-input"
+        />
+        <Input
+          setValue={ setPassword }
+          placeHolder="Password"
+          type="password"
+          testId="password-input"
+        />
+        <Button
+          onClick={ () => handleClick() }
+          text="Entrar"
+          disabled={ isValid }
+          dataTest="login-submit-btn"
+        />
+      </div>
     </div>
   );
 }

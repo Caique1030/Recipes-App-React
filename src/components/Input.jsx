@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../css/Input.css';
+
 function Input({ placeHolder, type, name, testId, min, value, id, text, setValue }) {
   return (
-    <label htmlFor={ id }>
+    <label htmlFor={ id } className="form-input">
       {text}
       <input
         type={ type }
