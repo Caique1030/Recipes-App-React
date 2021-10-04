@@ -99,7 +99,6 @@ export default function ReceitasFavoritas() {
             </button>
             <p
               data-testid={ `${index}-horizontal-top-text` }
-              className="horiTop"
             >
               {recipes.type === 'bebida' ? recipes.alcoholicOrNot
                 : `${recipes.area} - ${recipes.category}`}
