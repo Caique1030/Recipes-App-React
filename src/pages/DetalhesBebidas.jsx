@@ -8,6 +8,7 @@ import { fetchRecomendationsMeals } from '../services/fetchIdComidas';
 import '../css/CardsRecomendations.css';
 import ShareAndFavButton from '../components/ShareAndFavButton';
 import { modifyDrinkRecipeInfo } from '../GlobalFuncs/modifyRecipeInfo';
+import '../css/Detalhes.css';
 
 function DetalhesBebidas({ match: { params: { id } } }) {
   const [objIdReceita, setObjIdReceita] = useState();
@@ -60,23 +61,39 @@ function DetalhesBebidas({ match: { params: { id } } }) {
   }
 
   return (
-    <div>
-      <p>Detalhes bebidas</p>
+    <div className="divDetalhesBebidas">
       <img
         width="300px"
         data-testid="recipe-photo"
         src={ objIdReceita.strDrinkThumb }
         alt="recipeFoto"
+        className="imgDetalhes"
       />
-      <h3 data-testid="recipe-title">{ objIdReceita.strDrink }</h3>
-      <ShareAndFavButton recipeInfos={ modifyDrinkRecipeInfo(objIdReceita) } />
-      <p data-testid="recipe-category">{objIdReceita.strAlcoholic}</p>
-      {getIngredientAndMeasure().map((element, index) => (
-        <div key={ index }>
-          <p data-testid={ `${index}-ingredient-name-and-measure` }>{element}</p>
-        </div>
-      ))}
-      <p data-testid="instructions">{ objIdReceita.strInstructions }</p>
+      <h1
+        className="recipeTitle"
+        data-testid="recipe-title"
+      >
+        { objIdReceita.strDrink }
+      </h1>
+      <div className="btnFav">
+        <ShareAndFavButton recipeInfos={ modifyDrinkRecipeInfo(objIdReceita) } />
+      </div>
+      <p className="alc" data-testid="recipe-category">{objIdReceita.strAlcoholic}</p>
+      <section className="ingredients">
+        <p>Ingredients:</p>
+        {getIngredientAndMeasure().map((element, index) => (
+          <div key={ index }>
+            <p data-testid={ `${index}-ingredient-name-and-measure` }>{element}</p>
+          </div>
+        ))}
+      </section>
+      <p>Instructions:</p>
+      <p
+        className="pInstruction"
+        data-testid="instructions"
+      >
+        { objIdReceita.strInstructions }
+      </p>
       <p data-testid="video" />
       <div className="cardsRecomendations">
         {getSixCards(recomendations) !== undefined && getSixCards(recomendations)
