@@ -6,6 +6,8 @@
 }
 
 .buttonStart {
+  background-color: #f58634;
   bottom: 0;
+  font-size: 15px;
   position: fixed;
 }
