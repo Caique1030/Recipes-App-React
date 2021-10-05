@@ -27,8 +27,8 @@
 }
 
 h2 {
-  font-family: 'Lobster', cursive;
   color: var(--main-dourado-color);
+  font-family: Lobster , cursive;
 }
 
 .in-progress-title-section h5 {
@@ -80,8 +80,8 @@ h2 {
   border: solid rgb(194, 194, 194);
   border-radius: 30px;
   color: white;
+  font-family: Lobster , cursive;
   font-size: 25px;
-  font-family: 'Lobster', cursive;
   margin: 0 15px 10px;
   padding: 15px;
   width: 90%;

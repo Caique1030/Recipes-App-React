@@ -1,25 +1,25 @@
 .app-header {
   background-color: rgb(139, 90, 43);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   padding: 5px;
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .app-header h3 {
   color: white;
-  font-family: 'Lobster', cursive;
+  font-family: Lobster , cursive;
   font-size: 1.9rem;
   margin: 3px 0;
 }
 
 .header-Items-container {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .search-btn, .profile-btn {

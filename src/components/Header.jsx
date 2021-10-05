@@ -87,7 +87,6 @@ function Header({
             onClick={ () => verificaRadioFetch(inputHeader.inputHeader) }
             data-testid="exec-search-btn"
             className="form-button"
-            // className="filter-finish-btn"
           >
             Buscar
           </button>

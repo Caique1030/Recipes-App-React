@@ -13,7 +13,6 @@
 
 .recipeTitle {
   display: flex;
-  /* justify-content: center; */
 }
 
 .btnFav {
@@ -40,8 +39,8 @@
   align-items: stretch;
   display: flex;
   flex-direction: row;
-  overflow-y: hidden;
   margin-bottom: 50px;
+  overflow-y: hidden;
 }
 
 .alc {

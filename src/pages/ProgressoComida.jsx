@@ -4,6 +4,7 @@ import ProgressRecipe from '../components/ProgressRecipe';
 import fetchIdComidas from '../services/fetchIdComidas';
 import { modifyMealRecipeInfo } from '../GlobalFuncs/modifyRecipeInfo';
 import '../css/RecipeInProgress.css';
+import Loading from '../components/Loading';
 
 function ProgressoComida({ match: { params: { id } } }) {
   const [recipeInfo, setRecipeInfo] = useState(undefined);
@@ -17,11 +18,7 @@ function ProgressoComida({ match: { params: { id } } }) {
   }, [fetchId]);
 
   if (recipeInfo === undefined) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (

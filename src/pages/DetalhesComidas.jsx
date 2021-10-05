@@ -11,6 +11,7 @@ import ShareAndFavButton from '../components/ShareAndFavButton';
 import { modifyMealRecipeInfo } from '../GlobalFuncs/modifyRecipeInfo';
 import '../css/Detalhes.css';
 import '../css/RecipeInProgress.css';
+import Loading from '../components/Loading';
 
 function DetalhesComidas({ match: { params: { id } } }) {
   const [objIdReceita, setObjIdReceita] = useState();
@@ -49,7 +50,7 @@ function DetalhesComidas({ match: { params: { id } } }) {
   };
 
   if (objIdReceita === undefined) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (
