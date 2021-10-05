@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 :root {
+
   --main-laranja-color: #f58634;
 
   --main-laranja-claro-color: #fbbd89;
@@ -41,34 +42,29 @@ body {
 }
 
 .card-body-recipies {
+  align-items: center;
   background: white;
   border-radius: 50px 50px 6px 6px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 95px;
   margin: 80px 5px 10px;
   width: 161px;
 }
 
 .card-body-recipies img {
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
   border: 3px solid white;
   border-radius: 60px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
   height: 120px;
-  width: 120px;
   margin: -70px 0 0;
+  width: 120px;
 }
-/* .card-body-recipies img {
-  border-radius: 6px 6px 0 0;
-  height: 109px;
-  width: 161px;
-} */
 
 .card-body-recipies h4 {
   color: var(--main-dourado-color);
-  font-family: 'Lobster', cursive;
+  font-family: Lobster , cursive;
   letter-spacing: 1px;
   margin: 5px;
 }
@@ -143,5 +139,13 @@ body {
   padding: 5px;
   position: absolute;
   text-align: center;
+  width: 100%;
+}
+
+.loading-container {
+  margin: 30% 25px;
+}
+
+.loading-container img {
   width: 100%;
 }

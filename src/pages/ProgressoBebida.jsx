@@ -4,6 +4,7 @@ import ProgressRecipe from '../components/ProgressRecipe';
 import fetchIdBebidas from '../services/fetchIdBebidas';
 import { modifyDrinkRecipeInfo } from '../GlobalFuncs/modifyRecipeInfo';
 import '../css/RecipeInProgress.css';
+import Loading from '../components/Loading';
 
 function ProgressoBebida({ match: { params: { id } } }) {
   const [recipeInfo, setRecipeInfo] = useState(undefined);
@@ -17,11 +18,7 @@ function ProgressoBebida({ match: { params: { id } } }) {
   }, [fetchId]);
 
   if (recipeInfo === undefined) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
