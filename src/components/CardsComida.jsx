@@ -19,7 +19,9 @@ function CardsComida({ comidas }) {
               alt={ `Foto ${comida.strMeal}` }
               src={ comida.strMealThumb }
             />
-            <h4 data-testid={ `${index}-card-name` }>{comida.strMeal}</h4>
+            <div>
+              <h4 data-testid={ `${index}-card-name` }>{comida.strMeal}</h4>
+            </div>
           </div>
         </Link>
       ))}
