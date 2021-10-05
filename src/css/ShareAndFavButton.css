@@ -8,7 +8,7 @@
 }
 
 .share-fav-container button {
-  background-color: white;
+  background-color: var(--main-bg-color);
   border: none;
   height: 40px;
   margin: 0 7px;

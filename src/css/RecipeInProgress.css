@@ -5,6 +5,7 @@
 
 .recipe-in-progress-main section {
   margin: 6px;
+  padding: 0 10px;
 }
 
 .in-progress-header {
@@ -25,12 +26,23 @@
   justify-content: space-between;
 }
 
+h2 {
+  font-family: 'Lobster', cursive;
+  color: var(--main-dourado-color);
+}
+
+.in-progress-title-section h5 {
+  font-style: italic;
+}
+
 .ingredients-section ul {
-  background-color: rgb(194, 194, 194);
+  background-color: whitesmoke;
   border-radius: 10px;
+  color: rgb(80, 80, 80);
   display: flex;
   flex-direction: column;
   font-size: 25px;
+  font-weight: 600;
   padding: 15px;
 }
 
@@ -44,17 +56,22 @@
   width: 25px;
 }
 
+.ingredients-section li {
+  margin-left: 15px;
+}
+
 .marked {
-  color: white;
+  color: var(--main-dourado-color);
   text-decoration: line-through;
 }
 
 .insrtuctions-section p {
-  background-color: rgb(194, 194, 194);
+  background-color: whitesmoke;
   border-radius: 10px;
+  color: rgb(80, 80, 80);
   font-size: 20px;
   font-weight: 600;
-  padding: 5px;
+  padding: 15px;
 }
 
 .in-progress-finish-btn {
@@ -64,9 +81,10 @@
   border-radius: 30px;
   color: white;
   font-size: 25px;
-  margin-bottom: 10px;
+  font-family: 'Lobster', cursive;
+  margin: 0 15px 10px;
   padding: 15px;
-  width: 350px;
+  width: 90%;
 }
 
 .finished {

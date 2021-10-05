@@ -25,6 +25,7 @@ export const ChoiceButton = (inFButton, push) => {
         type="button"
         data-testid="start-recipe-btn"
         onClick={ () => onClick() }
+        // className="form-button"
         className="buttonStart"
       >
         Continuar Receita
@@ -36,6 +37,7 @@ export const ChoiceButton = (inFButton, push) => {
       type="button"
       data-testid="start-recipe-btn"
       onClick={ () => onClick() }
+      // className="form-button"
       className="buttonStart"
     >
       Start

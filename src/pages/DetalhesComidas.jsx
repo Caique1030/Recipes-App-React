@@ -10,6 +10,7 @@ import '../css/CardsRecomendations.css';
 import ShareAndFavButton from '../components/ShareAndFavButton';
 import { modifyMealRecipeInfo } from '../GlobalFuncs/modifyRecipeInfo';
 import '../css/Detalhes.css';
+import '../css/RecipeInProgress.css';
 
 function DetalhesComidas({ match: { params: { id } } }) {
   const [objIdReceita, setObjIdReceita] = useState();
@@ -52,42 +53,69 @@ function DetalhesComidas({ match: { params: { id } } }) {
   }
 
   return (
-    <div className="divDetalhes">
-      <img
-        src={ objIdReceita.strMealThumb }
-        data-testid="recipe-photo"
-        alt="recipeFoto"
-        className="imgDetalhes"
-      />
-      <h3 className="recipeTitle" data-testid="recipe-title">{objIdReceita.strMeal}</h3>
-      <div className="btnFav">
+    <main className="recipe-in-progress-main">
+      <header className="in-progress-header">
+        <img
+          src={ objIdReceita.strMealThumb }
+          data-testid="recipe-photo"
+          alt="recipeFoto"
+          // className="imgDetalhes"
+        />
+      </header>
+      <section className="in-progress-title-section">
+        <div>
+          <h2 data-testid="recipe-title">{objIdReceita.strMeal}</h2>
+          <h5 data-testid="recipe-category">{objIdReceita.strCategory}</h5>
+        </div>
         <ShareAndFavButton recipeInfos={ modifyMealRecipeInfo(objIdReceita) } />
-      </div>
-      <p className="alc" data-testid="recipe-category">{objIdReceita.strCategory}</p>
-      <p>Ingredients:</p>
-      <section className="ingredients">
-        {getIngredientAndMeasure().map((ingredient, index) => (
-          <ul key={ index }>
-            <li data-testid={ `${index}-ingredient-name-and-measure` }>{ingredient}</li>
-          </ul>
-        ))}
       </section>
-      <p>Instructions:</p>
-      <p
-        className="pInstruction"
-        data-testid="instructions"
-      >
-        {objIdReceita.strInstructions}
-      </p>
-      <iframe
-        title="dsa"
-        frameBorder="0"
-        data-testid="video"
-        width="300px"
-        src={ getEmbedVideo(objIdReceita) }
-        className="video"
-      />
+      <section className="ingredients-section">
+        <h2>Ingredients:</h2>
+        <ul>
+          {getIngredientAndMeasure().map((ingredient, index) => (
+            <li
+              key={ index }
+              data-testid={ `${index}-ingredient-name-and-measure` }
+            >
+              {ingredient}
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="insrtuctions-section">
+        <h2>Instructions:</h2>
+        <p data-testid="instructions">
+          {objIdReceita.strInstructions}
+        </p>
+      </section>
+      <section>
+        <iframe
+          title="dsa"
+          frameBorder="0"
+          data-testid="video"
+          // width="300px"
+          src={ getEmbedVideo(objIdReceita) }
+          className="video"
+        />
+      </section>
       <div className="cardsRecomendations">
+        {getSixCards(objRecomendations) !== undefined && getSixCards(objRecomendations)
+          .map((element, index) => (
+            <div
+              data-testid={ `${index}-recomendation-card` }
+              key={ index }
+              className="card-body-recipies"
+            >
+              <img
+                // style={ { width: '180px' } }
+                src={ element.strDrinkThumb }
+                alt="imag"
+              />
+              <h4 data-testid={ `${index}-recomendation-title` }>{element.strDrink}</h4>
+            </div>
+          ))}
+      </div>
+      {/* <div className="cardsRecomendations">
         {getSixCards(objRecomendations) !== undefined && getSixCards(objRecomendations)
           .map((element, index) => (
             <div data-testid={ `${index}-recomendation-card` } key={ index }>
@@ -99,9 +127,9 @@ function DetalhesComidas({ match: { params: { id } } }) {
               <p data-testid={ `${index}-recomendation-title` }>{element.strDrink}</p>
             </div>
           ))}
-      </div>
+      </div> */}
       {ChoiceButton(inFButton, push)}
-    </div>
+    </main>
   );
 }
 
