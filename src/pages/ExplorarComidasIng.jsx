@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ExploreByIngredients from '../components/ExploreByIngredients';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import { fetchMealIngredientsList } from '../services/fetchIngredientsList';
 
 function ExplorarComidasIng() {
@@ -14,6 +15,10 @@ function ExplorarComidasIng() {
   useEffect(() => {
     fetchIngredients();
   }, []);
+
+  if (ingredients.length === 0) {
+    return <Loading />;
+  }
 
   return (
     <main className="main-content">

@@ -9,6 +9,7 @@ import '../css/CardsRecomendations.css';
 import ShareAndFavButton from '../components/ShareAndFavButton';
 import { modifyDrinkRecipeInfo } from '../GlobalFuncs/modifyRecipeInfo';
 import '../css/Detalhes.css';
+import Loading from '../components/Loading';
 
 function DetalhesBebidas({ match: { params: { id } } }) {
   const [objIdReceita, setObjIdReceita] = useState();
@@ -53,11 +54,7 @@ function DetalhesBebidas({ match: { params: { id } } }) {
   };
 
   if (objIdReceita === undefined) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
