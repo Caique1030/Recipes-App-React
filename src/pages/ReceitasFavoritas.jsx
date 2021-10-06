@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import Button from '../components/Button';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
 import { clickShare } from '../services/functionsForDetails';
 import '../css/ReceitasFavoritas.css';
 
+const INTERVAL = 3000;
+
 export default function ReceitasFavoritas() {
   const [copyOk, setCopyOk] = useState(false);
   const [favoritesFromStorage, setFavoritesFromStorage] = useState([]);
-  const { push } = useHistory();
-
-  const sendToDetails = (type, id) => {
-    if (type === 'bebida') {
-      push(`/bebidas/${id}`);
-    }
-    if (type === 'comida') {
-      push(`/comidas/${id}`);
-    }
-  };
 
   const onClickFilter = (type) => {
     const arrayFromStorage = JSON.parse(localStorage.getItem('favoriteRecipes'));
@@ -39,33 +32,32 @@ export default function ReceitasFavoritas() {
   };
 
   const buttonsFilters = () => (
-    <div>
-      <button
-        type="button"
-        data-testid="filter-by-all-btn"
+    <div className="category-body">
+      <Button
+        text="All"
+        dataTest="filter-by-all-btn"
         onClick={ () => onClickFilter('All') }
-        className="btnFilters"
-      >
-        All
-      </button>
-      <button
-        type="button"
-        data-testid="filter-by-food-btn"
+      />
+      <Button
+        text="Food"
+        dataTest="filter-by-food-btn"
         onClick={ () => onClickFilter('Food') }
-        className="btnFilters"
-      >
-        Food
-      </button>
-      <button
-        type="button"
-        data-testid="filter-by-drink-btn"
+      />
+      <Button
+        text="Drinks"
+        dataTest="filter-by-drink-btn"
         onClick={ () => onClickFilter('Drinks') }
-        className="btnFilters"
-      >
-        Drinks
-      </button>
+      />
     </div>
   );
+
+  useEffect(() => {
+    // chamar a função de cronometro
+    if (copyOk) {
+      const intervalId = setInterval(() => { setCopyOk(false); }, INTERVAL);
+      return () => { clearInterval(intervalId); };
+    }
+  }, [copyOk]);
 
   useEffect(() => {
     setFavoritesFromStorage(JSON.parse(localStorage.getItem('favoriteRecipes')));
@@ -80,57 +72,65 @@ export default function ReceitasFavoritas() {
   return (
     <main className="main-content">
       <Header pageTitle="Receitas Favoritas" searchButton={ false } />
-      <div className="divFav">
-        {buttonsFilters()}
+      {buttonsFilters()}
+      <div className="recipes-done-cards">
         {favoritesFromStorage !== null && favoritesFromStorage.map((recipes, index) => (
-          <div className="divMap" key={ index }>
-            <button
-              alt="imageRecipe"
-              type="button"
-              data-testid={ `${index}-horizontal-image` }
-              onClick={ () => sendToDetails(recipes.type, recipes.id) }
-              src={ recipes.image }
+          <div className="recipes-done-card" key={ index }>
+            <Link
+              to={ recipes.type === 'comida'
+                ? `/comidas/${recipes.id}` : `/bebidas/${recipes.id}` }
             >
               <img
+                className="recipes-done-card-img"
+                data-testid={ `${index}-horizontal-image` }
                 src={ recipes.image }
-                className="imgFav"
-                alt="imagemComida"
+                alt={ `Foto ${recipes.name}` }
               />
-            </button>
-            <p
-              data-testid={ `${index}-horizontal-top-text` }
-            >
-              {recipes.type === 'bebida' ? recipes.alcoholicOrNot
-                : `${recipes.area} - ${recipes.category}`}
-            </p>
-            <button
-              type="button"
-              data-testid={ `${index}-horizontal-name` }
-              onClick={ () => sendToDetails(recipes.type, recipes.id) }
-              className="horizontalName"
-            >
-              {recipes.name}
-            </button>
-            <button
-              type="button"
-              onClick={ () => clickShare(setCopyOk, recipes.type, recipes.id) }
-              data-testid={ `${index}-horizontal-share-btn` }
-              src={ shareIcon }
-            >
-              <img src={ shareIcon } alt="shareIcon" />
-            </button>
-            <button
-              type="button"
-              data-testid={ `${index}-horizontal-favorite-btn` }
-              onClick={ () => clickFavoriteButton(recipes.id) }
-              src={ blackHeartIcon }
-            >
-              <img src={ blackHeartIcon } alt="blackHeart" />
-            </button>
+            </Link>
+            <div>
+              <h5
+                data-testid={ `${index}-horizontal-top-text` }
+              >
+                {recipes.type === 'bebida' ? recipes.alcoholicOrNot
+                  : `${recipes.area} - ${recipes.category}`}
+              </h5>
+              <Link
+                to={ recipes.type === 'comida'
+                  ? `/comidas/${recipes.id}` : `/bebidas/${recipes.id}` }
+              >
+                <h4 data-testid={ `${index}-horizontal-name` }>{ recipes.name }</h4>
+              </Link>
+
+              <button
+                className="favorite-button"
+                type="button"
+                onClick={ () => clickShare(setCopyOk, recipes.type, recipes.id) }
+              >
+                <img
+                  className="recipes-done-card-share"
+                  data-testid={ `${index}-horizontal-share-btn` }
+                  src={ shareIcon }
+                  alt="Compartilhar"
+                />
+              </button>
+              <button
+                className="favorite-button"
+                type="button"
+                onClick={ () => clickFavoriteButton(recipes.id) }
+              >
+                <img
+                  className="recipes-done-card-share"
+                  data-testid={ `${index}-horizontal-favorite-btn` }
+                  src={ blackHeartIcon }
+                  alt="Favorito"
+                />
+              </button>
+
+            </div>
           </div>
         ))}
-        <p>{copyOk ? 'Link copiado!' : null}</p>
       </div>
+      { copyOk && <div className="alert-mensage">Link copiado!</div> }
     </main>
   );
 }

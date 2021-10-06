@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchIngrediente, fetchName,
   fetchPrimeiraLetra, getMealCategoriesList,
   getMealCategoryFilter } from '../services/fetchRadioComidas';
+import Loading from '../components/Loading';
 import Header from '../components/Header';
 import CardsComida from '../components/CardsComida';
 import Footer from '../components/Footer';
@@ -93,7 +94,8 @@ function Comidas({ inputTextInitialValue }) {
           onClick={ selectCategoryFilter }
           onClickAll={ componentLoad }
         />
-        {resultFetch.length >= 1 && <CardsComida comidas={ pegarDozeElementos() } />}
+        {resultFetch.length >= 1
+          ? <CardsComida comidas={ pegarDozeElementos() } /> : <Loading />}
         <Footer />
       </main>
     );

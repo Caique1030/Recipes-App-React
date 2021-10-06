@@ -97,37 +97,62 @@ body {
   margin: 5px 0;
   width: 330px;
 }
+.recipes-done-card div {
+  padding: 5px;
+}
 
 .recipes-done-card h5 {
   font-size: 0.8rem;
   font-weight: 700;
+  margin-bottom: 0;
 }
 
 .recipes-done-card h4 {
-  font-size: 1rem;
-  font-weight: 700;
+  color: var(--main-dourado-color);
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
+  margin: 3px 0;
 }
 
 .recipes-done-card p {
   font-size: 0.8rem;
   font-weight: 500;
+  margin: 0;
 }
 
 .recipes-done-card-img {
-  border-radius: 4px 0 0 4px;
-  height: 140px;
-  margin: 0 5px;
+  border-radius: 6px 0 0 6px;
+  height: 143px;
+  margin: 0 5px 0 0;
   width: 165px;
 }
 
+.recipes-done-card .favorite-button {
+  background-color: white;
+  border: none;
+  height: 20px;
+  margin: 0 7px;
+  width: 20px;
+  position: relative;
+  top: 50px;
+  left: 83px;
+}
+
 .recipes-done-card button {
-  border-radius: 5px;
+  background-color: white;
+  border: none;
+  height: 20px;
+  margin: 0 7px;
+  width: 20px;
+  position: relative;
+  top: -65px;
+  left: 113px;
 }
 
 .recipes-done-card-share {
-  height: 30px;
+  height: 17px;
   margin: 2px;
-  width: 30px;
+  width: 17px;
 }
 
 .recipes-done-tags {
@@ -136,8 +161,9 @@ body {
 }
 
 .recipes-done-tags span {
-  background: rgba(236, 222, 222, 1);
+  background: var(--main-bg-color);
   border-radius: 12px;
+  font-size: 0.7rem;
   margin: 3px;
   padding: 2px 5px;
 }
@@ -154,9 +180,22 @@ body {
 }
 
 .loading-container {
-  margin: 30% 25px;
+  /* margin: 30% 25px; */
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+}
+
+.loading-container h4 {
+  font-family: 'Lobster', cursive;
+  color: var(--main-dourado-color);
+  padding-bottom: 50px;
 }
 
 .loading-container img {
-  width: 100%;
+  width: 70%;
+  padding: 0 20px 0 0;
 }
