@@ -29,6 +29,7 @@
 h2 {
   color: var(--main-dourado-color);
   font-family: Lobster , cursive;
+  margin-bottom: 5px;
 }
 
 .in-progress-title-section h5 {
@@ -57,7 +58,9 @@ h2 {
 }
 
 .ingredients-section li {
+  font-size: 1.2rem;
   margin-left: 15px;
+  padding: 2px 0;
 }
 
 .marked {
@@ -69,7 +72,8 @@ h2 {
   background-color: whitesmoke;
   border-radius: 10px;
   color: rgb(80, 80, 80);
-  font-size: 20px;
+  line-height: 1.7rem;
+  font-size: 1.2rem;
   font-weight: 600;
   padding: 15px;
 }

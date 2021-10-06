@@ -9,6 +9,7 @@ import '../css/CardsRecomendations.css';
 import ShareAndFavButton from '../components/ShareAndFavButton';
 import { modifyDrinkRecipeInfo } from '../GlobalFuncs/modifyRecipeInfo';
 import '../css/Detalhes.css';
+import '../css/RecipeInProgress.css';
 import Loading from '../components/Loading';
 
 function DetalhesBebidas({ match: { params: { id } } }) {
@@ -58,51 +59,108 @@ function DetalhesBebidas({ match: { params: { id } } }) {
   }
 
   return (
-    <div className="divDetalhes">
-      <img
-        width="300px"
-        data-testid="recipe-photo"
-        src={ objIdReceita.strDrinkThumb }
-        alt="recipeFoto"
-        className="imgDetalhes"
-      />
-      <h1
-        className="recipeTitle"
-        data-testid="recipe-title"
-      >
-        { objIdReceita.strDrink }
-      </h1>
-      <div className="btnFav">
+    <main className="recipe-in-progress-main">
+      <header className="in-progress-header">
+        <img
+          src={ objIdReceita.strDrinkThumb }
+          data-testid="recipe-photo"
+          alt="recipeFoto"
+          // className="imgDetalhes"
+        />
+      </header>
+      <section className="in-progress-title-section">
+        <div>
+          <h2 data-testid="recipe-title">{objIdReceita.strDrink}</h2>
+          <h5 data-testid="recipe-category">{objIdReceita.strAlcoholic}</h5>
+        </div>
         <ShareAndFavButton recipeInfos={ modifyDrinkRecipeInfo(objIdReceita) } />
-      </div>
-      <p className="alc" data-testid="recipe-category">{objIdReceita.strAlcoholic}</p>
-      <section className="ingredients">
-        <p>Ingredients:</p>
-        {getIngredientAndMeasure().map((element, index) => (
-          <div key={ index }>
-            <p data-testid={ `${index}-ingredient-name-and-measure` }>{element}</p>
-          </div>
-        ))}
       </section>
-      <p>Instructions:</p>
-      <p
-        className="pInstruction"
-        data-testid="instructions"
-      >
-        { objIdReceita.strInstructions }
-      </p>
-      <p data-testid="video" />
+      <section className="ingredients-section">
+        <h2>Ingredients:</h2>
+        <ul>
+          {getIngredientAndMeasure().map((ingredient, index) => (
+            <li
+              key={ index }
+              data-testid={ `${index}-ingredient-name-and-measure` }
+            >
+              {ingredient}
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="insrtuctions-section">
+        <h2>Instructions:</h2>
+        <p data-testid="instructions">
+          {objIdReceita.strInstructions}
+        </p>
+      </section>
+      <section>
+        <p data-testid="video" />
+      </section>
       <div className="cardsRecomendations">
         {getSixCards(recomendations) !== undefined && getSixCards(recomendations)
           .map((element, index) => (
-            <div data-testid={ `${index}-recomendation-card` } key={ index }>
-              <img style={ { width: '180px' } } src={ element.strMealThumb } alt="imag" />
-              <p data-testid={ `${index}-recomendation-title` }>{element.strMeal}</p>
+            <div
+              data-testid={ `${index}-recomendation-card` }
+              key={ index }
+              className="card-body-recipies"
+            >
+              <img
+                // style={ { width: '180px' } }
+                src={ element.strMealThumb }
+                alt="imag"
+              />
+              <h4 data-testid={ `${index}-recomendation-title` }>{element.strMeal}</h4>
             </div>
           ))}
       </div>
       {ChoiceButton(inFButton, push)}
-    </div>
+    </main>
+    // <div className="divDetalhes">
+    //   <img
+    //     width="300px"
+    //     data-testid="recipe-photo"
+    //     src={ objIdReceita.strDrinkThumb }
+    //     alt="recipeFoto"
+    //     className="imgDetalhes"
+    //   />
+    //   <h1
+    //     className="recipeTitle"
+    //     data-testid="recipe-title"
+    //   >
+    //     { objIdReceita.strDrink }
+    //   </h1>
+    //   <div className="btnFav">
+    //     <ShareAndFavButton recipeInfos={ modifyDrinkRecipeInfo(objIdReceita) } />
+    //   </div>
+    //   <p className="alc" data-testid="recipe-category">{objIdReceita.strAlcoholic}</p>
+    //   <section className="ingredients">
+    //     <p>Ingredients:</p>
+    //     {getIngredientAndMeasure().map((element, index) => (
+    //       <div key={ index }>
+    //         <p data-testid={ `${index}-ingredient-name-and-measure` }>{element}</p>
+    //       </div>
+    //     ))}
+    //   </section>
+    //   <p>Instructions:</p>
+    //   <p
+    //     className="pInstruction"
+    //     data-testid="instructions"
+    //   >
+    //     { objIdReceita.strInstructions }
+    //   </p>
+    //   <p data-testid="video" />
+    //   <div className="cardsRecomendations">
+    //     {getSixCards(recomendations) !== undefined && getSixCards(recomendations)
+    //       .map((element, index) => (
+    //         <div data-testid={ `${index}-recomendation-card` } key={ index }>
+    //           <img style={ { width: '180px' } } src={ element.strMealThumb } alt="imag" />
+    //           <p data-testid={ `${index}-recomendation-title` }>{element.strMeal}</p>
+    //         </div>
+    //       ))}
+    //   </div>
+    //   {ChoiceButton(inFButton, push)}
+    // </div>
   );
 }
 
