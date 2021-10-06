@@ -222,3 +222,7 @@ body {
   background-color: rgb(194, 194, 194);
   border: 1px solid rgb(170, 170, 170);
 }
+
+.explore-form-button img {
+  width: 38px;
+}

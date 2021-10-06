@@ -1,9 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
-import ButtonExplorer from '../components/ButtonExplorer';
+// import ButtonExplorer from '../components/ButtonExplorer';
 import Footer from '../components/Footer';
 import { getMealSurprise } from '../services/fetchRadioComidas';
+
+import expIngIcon from '../images/ingredientes.png';
+import expLocalIcon from '../images/globo.png';
+import expSurpIcon from '../images/surpresa.png';
 
 export default function ExplorarComidas() {
   const history = useHistory();
@@ -28,7 +32,37 @@ export default function ExplorarComidas() {
     <main className="main-content">
       <Header pageTitle="Explorar Comidas" searchButton={ false } />
 
-      <ButtonExplorer
+      <div className="recipes-done-cards">
+        <button
+          className="explore-form-button"
+          onClick={ redirectExplorerByIngredient }
+          data-testid="explore-by-ingredient"
+          type="button"
+        >
+          <img src={ expIngIcon } alt="Ingredientes icon" />
+          Por Ingredientes
+        </button>
+        <button
+          className="explore-form-button"
+          onClick={ redirectExplorerByArea }
+          data-testid="explore-by-area"
+          type="button"
+        >
+          <img src={ expLocalIcon } alt="Local icon" />
+          Por Local de Origem
+        </button>
+        <button
+          className="explore-form-button"
+          onClick={ redirectSurprise }
+          data-testid="explore-surprise"
+          type="button"
+        >
+          <img src={ expSurpIcon } alt="Surpreenda icon" />
+          Me Surpreenda!
+        </button>
+      </div>
+
+      {/* <ButtonExplorer
         id="by-ingredient"
         dataTest="explore-by-ingredient"
         className="button-explorer"
@@ -50,7 +84,7 @@ export default function ExplorarComidas() {
         className="button-explorer"
         text="Me Surpreenda!"
         onClick={ redirectSurprise }
-      />
+      /> */}
 
       <Footer />
     </main>
