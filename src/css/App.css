@@ -226,3 +226,26 @@ body {
 .explore-form-button img {
   width: 38px;
 }
+
+.perfil-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.perfil-section img {
+  border: 3px solid white;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  margin-top: 30px;
+  width: 50%;
+}
+
+.perfil-section h4 {
+  margin: 20px 0;
+}
+
+.perfil-section button {
+  margin: 8px 0;
+  width: 60%;
+}

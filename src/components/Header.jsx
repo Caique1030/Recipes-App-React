@@ -5,6 +5,7 @@ import { useHistory } from 'react-router';
 import { actionInputHeader } from '../redux/actions';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import pix from '../images/pix.png';
 import '../css/Header.css';
 import '../css/Input.css';
 import '../css/Button.css';
@@ -95,6 +96,14 @@ function Header({
     );
   }
 
+  function renderButtonSpace() {
+    return (
+      <button type="button" className="search-btn">
+        <img alt="" src={ pix } />
+      </button>
+    );
+  }
+
   return (
     <header className="app-header">
       <div className="header-Items-container">
@@ -111,7 +120,9 @@ function Header({
         <h3 data-testid="page-title">{pageTitle}</h3>
 
         <div>
-          {searchButton && renderButton()}
+          {searchButton
+            ? renderButton()
+            : renderButtonSpace() }
         </div>
       </div>
 
