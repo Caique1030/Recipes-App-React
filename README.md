@@ -7,6 +7,14 @@ Esse projeto trata de um app de receitas consumindo algumas APIs, de bebida e co
 
 > Desenvolvido usando: React, Redux, CSS3, HTML5, ES6
 
+## Instalando Dependências
+
+npm install
+
+## Executando aplicação
+
+npm start
+
 
 
 
