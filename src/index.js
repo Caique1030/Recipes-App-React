@@ -8,11 +8,12 @@ import store from './redux/store';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Provider store={ store }>
-    <BrowserRouter basename={ process.env.PUBLIC_URL }>
+  <BrowserRouter basename={ process.env.PUBLIC_URL }>
+    <Provider store={ store }>
       <App />
-    </BrowserRouter>
-  </Provider>,
+    </Provider>
+    ,
+  </BrowserRouter>,
   document.getElementById('root'),
 );
 
