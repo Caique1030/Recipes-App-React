@@ -1,5 +1,13 @@
-### Recipes app
+# APP de receitas
 
-Projeto feito em grupo utilizando, React, Redux e APIs de bebidas e comidas, e estilizado com CSS
+# Contexto
+Esse projeto trata de um app de receitas consumindo algumas APIs, de bebida e comida, projeto feito em grupo.
 
-Participantes do grupo: Aleilton, Paulo Nogueira, Arthur e Filipe Guto
+## Técnologias usadas
+
+> Desenvolvido usando: React, Redux, CSS3, HTML5, ES6
+
+
+
+
+
