@@ -12,14 +12,16 @@ function CardsComida({ comidas }) {
         >
           <div
             data-testid={ `${index}-recipe-card` }
-            className="card-body"
+            className="card-body-recipies"
           >
             <img
               data-testid={ `${index}-card-img` }
               alt={ `Foto ${comida.strMeal}` }
               src={ comida.strMealThumb }
             />
-            <h4 data-testid={ `${index}-card-name` }>{comida.strMeal}</h4>
+            <div>
+              <h4 data-testid={ `${index}-card-name` }>{comida.strMeal}</h4>
+            </div>
           </div>
         </Link>
       ))}

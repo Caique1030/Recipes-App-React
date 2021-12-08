@@ -9,6 +9,7 @@
   align-items: center;
   background-color: white;
   border: none;
+  border-radius: 6px;
 
   /* Referência do box shadow:
   https://www.w3schools.com/css/css3_shadows_box.asp */
@@ -21,4 +22,10 @@
 
 .ingredients-cards img {
   width: inherit;
+}
+
+.ingredients-cards span {
+  color: var(--main-dourado-color);
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
 }

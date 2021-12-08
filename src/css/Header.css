@@ -1,5 +1,6 @@
 .app-header {
-  background-color: grey;
+  background-color: rgb(139, 90, 43);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -8,14 +9,24 @@
   width: 100%;
 }
 
+.app-header h3 {
+  color: white;
+  font-family: Lobster , cursive;
+  font-size: 1.9rem;
+  margin: 3px 0;
+}
+
 .header-Items-container {
+  align-items: center;
   display: flex;
   justify-content: space-between;
 }
 
 .search-btn, .profile-btn {
-  background-color: grey;
+  background-color: inherit;
   border: none;
+  height: 30px;
+  width: 37px;
 }
 
 .filter-main {
@@ -24,9 +35,8 @@
 }
 
 .filter-main input {
-  border-radius: 10px;
-  font-size: 23px;
-  margin-top: 4px;
+  margin: 8px 0 0;
+  width: 100%;
 }
 
 .filter-container {
@@ -35,23 +45,22 @@
 }
 
 .radio-btn-container {
+  color: white;
   display: flex;
   flex-direction: column;
-  font-size: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
   justify-content: space-around;
   margin-top: 10px;
+}
+
+.radios-input {
+  align-items: center;
+  display: flex;
 }
 
 .radios-input input {
   height: 20px;
   margin: 0 6px;
   width: 20px;
-}
-
-.filter-finish-btn {
-  background-color: rgb(80, 80, 80);
-  border-radius: 20px;
-  color: white;
-  font-size: 25px;
-  margin-bottom: 5px;
 }

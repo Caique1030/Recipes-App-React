@@ -1,20 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Button({ onClick, id, dataTest, text, disabled }) {
+import '../css/Button.css';
+
+function Button({ onClick, id, dataTest, text, disabled, className }) {
   return (
     <button
       type="button"
       onClick={ onClick }
       disabled={ disabled }
       id={ id }
-      className={ id }
+      className={ className }
       data-testid={ dataTest }
     >
       {text}
     </button>
   );
 }
+
+Button.defaultProps = {
+  className: 'form-button',
+};
+
 Button.propTypes = {
   onClick: PropTypes.func,
   id: PropTypes.string,

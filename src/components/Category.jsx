@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Button from './Button';
 
+import '../css/Category.css';
+
 const CATEGORY_QUANTITY = 5;
 
 function Category({ categories, onClick, onClickAll }) {

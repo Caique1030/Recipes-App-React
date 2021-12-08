@@ -3,6 +3,9 @@ import { getMealAreas, getMealByArea } from '../services/fetchRadioComidas';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import CardsComida from '../components/CardsComida';
+import Loading from '../components/Loading';
+
+import '../css/ExplorarComidasArea.css';
 
 export default function ExplorarComidasArea() {
   const QUANTIDADE_RECEITAS = 12;
@@ -28,14 +31,15 @@ export default function ExplorarComidasArea() {
   }, [mealByArea]);
 
   return selectAreas.length === 0 ? (
-    <p>Loading...</p>
+    <Loading />
   ) : (
     <main className="main-content">
       <Header pageTitle="Explorar Origem" />
-      <div>
+      <div className="explorar-origem">
         <label htmlFor="area">
           <select
             name="area"
+            id="area"
             data-testid="explore-by-area-dropdown"
             onChange={ (e) => (setSelectedArea(e.target.value)) }
           >

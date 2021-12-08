@@ -5,7 +5,10 @@ import { useHistory } from 'react-router';
 import { actionInputHeader } from '../redux/actions';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import pix from '../images/pix.png';
 import '../css/Header.css';
+import '../css/Input.css';
+import '../css/Button.css';
 
 function Header({
   pageTitle,
@@ -39,11 +42,14 @@ function Header({
   function displaySearchInput() {
     return (
       <div className="filter-main">
-        <input
-          onChange={ ({ target }) => setSearchInput(target.value) }
-          data-testid="search-input"
-          type="text"
-        />
+        <label className="form-input" htmlFor="input-search">
+          <input
+            onChange={ ({ target }) => setSearchInput(target.value) }
+            data-testid="search-input"
+            type="text"
+            id="input-search"
+          />
+        </label>
         <div className="filter-container">
           <div className="radio-btn-container">
             <label htmlFor="ingredient" className="radios-input">
@@ -81,12 +87,20 @@ function Header({
             type="button"
             onClick={ () => verificaRadioFetch(inputHeader.inputHeader) }
             data-testid="exec-search-btn"
-            className="filter-finish-btn"
+            className="form-button"
           >
             Buscar
           </button>
         </div>
       </div>
+    );
+  }
+
+  function renderButtonSpace() {
+    return (
+      <button type="button" className="search-btn">
+        <img alt="" src={ pix } />
+      </button>
     );
   }
 
@@ -106,7 +120,9 @@ function Header({
         <h3 data-testid="page-title">{pageTitle}</h3>
 
         <div>
-          {searchButton && renderButton()}
+          {searchButton
+            ? renderButton()
+            : renderButtonSpace() }
         </div>
       </div>
 

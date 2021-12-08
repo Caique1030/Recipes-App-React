@@ -1,11 +1,8 @@
 .divDetalhes {
-  background-color: whitesmoke;
-  font-family: Lobster , sans-serif;
   font-size: 20px;
 }
 
 .divDetalhes .imgDetalhes {
-  border-radius: 10%;
   height: 250px;
 
   /* Referência do object-fit:
@@ -16,7 +13,6 @@
 
 .recipeTitle {
   display: flex;
-  justify-content: center;
 }
 
 .btnFav {
@@ -43,6 +39,7 @@
   align-items: stretch;
   display: flex;
   flex-direction: row;
+  margin-bottom: 50px;
   overflow-y: hidden;
 }
 
@@ -55,6 +52,6 @@
 .video {
   display: flex;
   margin-bottom: 10px;
-  width: 300px;
+  width: 100%;
 }
 
