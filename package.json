@@ -26,7 +26,7 @@
     "redux-thunk": "^2.3.0",
     "websocket-extensions": ">=0.1.4"
   },
-  "homepage": "https://rafaelromanoz.github.io/recipe-app-react",
+  "homepage": "https:\/\/rafaelromanoz.github.io/recipes-app-react",
   "scripts": {
     "cy": "cypress run",
     "cy:open": "cypress open",
